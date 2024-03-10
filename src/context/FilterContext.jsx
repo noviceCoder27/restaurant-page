@@ -31,16 +31,42 @@ export const FilterContextProvider = ({children}) => {
             }
         return true;
     });    
-      setFilteredItems(filteredRestaurants);
+    setFilteredItems(filteredRestaurants);
+    const allValues = Object.keys(filterValues).reduce((arr, key) => {
+        if ((key === 'price' || key === 'distance') && filterValues[key].length > 0) {
+          return [...arr, filterValues[key]];
+        } else if (filterValues[key].length > 0) {
+          return [...arr, ...filterValues[key]];
+        } else {
+          return arr;
+        }
+    }, []);
+    setFilterArr(allValues);
     }
 
     const reset = () => {
         setIsDefault(true);
+        setFilterArr([]);
+        setFilterValues({format: [], price: [],occasion: [],foodType: [],distance: []});
         setFilteredItems(restaurants);
     }
 
     return (
-        <CreateFilterContext.Provider value = {{filter,reset,filterValues,setFilterValues,filteredItems,setFilteredItems,isDefault,setIsDefault,restaurants}}>{children}</CreateFilterContext.Provider>
+        <CreateFilterContext.Provider value = {{
+            filter,
+            reset,
+            filterValues,
+            setFilterValues,
+            filteredItems,
+            setFilteredItems,
+            isDefault,
+            setIsDefault,
+            restaurants,
+            filterArr,
+            setFilterArr
+        }}>
+            {children}
+        </CreateFilterContext.Provider>
     )
 }
 

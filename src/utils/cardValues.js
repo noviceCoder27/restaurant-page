@@ -22,6 +22,8 @@ export const checkRating = (value) => {
     return "#fc1703"
 }
 
-export const checkAddedDate = () => {
-
+export const checkAddedDate = (date) => {
+    const cardDate = new Date(date).getDate();
+    const comapreDate = new Date("2024-03-10T00:00:00Z").getDate();
+    return cardDate > comapreDate;
 }

@@ -23,6 +23,9 @@ padding: 2rem;
 padding-top: 1rem;
 background-color: #faedb4;
 width: 100%
+@media and(max-width: 450px) {
+  padding-left: 0;
+}
 `;
 
 const Header = styled.h2`
@@ -126,7 +129,7 @@ gap: 1rem;
 const Home = () => {
   const [text,setText] = useState("Most Popular")
   const [openDrawer,setOpenDrawer] = useState(false);
-  const {restaurants,filter,filteredItems,reset} = useFilterContext()
+  const {restaurants,filter,filteredItems,reset,filterArr} = useFilterContext()
   const itemsPerPage = 6;
   const [page, setPage] = useState(1);
   const noOfPages = Math.ceil(filteredItems.length / itemsPerPage);
@@ -152,6 +155,10 @@ const Home = () => {
     <Grid item xs={12} sm = {4} md = {3} lg = {3} xl = {2} key = {index} minWidth = {{sm: "250px", md: "300px", lg: "320px"}}>
       <Card frequentOrder = {false} data = {restaurant}/>
     </Grid>
+  ))
+  
+  const displayFilterButtons = filterArr.map((item,index) => (
+    <FilterButton key = {index} data = {item}/>
   ))
 
   return (
@@ -179,7 +186,7 @@ const Home = () => {
           <Box borderTop= "2px solid #d1d1d1" p = "2rem">
             <Stack direction = "row" width = "100%" flexWrap= "wrap">
               <FilterButtons>
-                <FilterButton />
+                {displayFilterButtons}
               </FilterButtons>
               <Sort>
                 <SortText>Sort by:</SortText>
@@ -190,7 +197,7 @@ const Home = () => {
                 </StyledSelect>
               </Sort>
             </Stack>
-            <Grid container mt = '2rem' columnGap = "1rem" rowGap = "2rem" justifyContent={{sm: "center",lg: "start"}}>
+            <Grid container mt = '2rem' ml = {{lg: "5rem"}} columnGap = "1rem" rowGap = "2rem" justifyContent={{sm: "center",lg: "start"}}>
               {displayGridItems}
             </Grid>
             <Stack spacing={2} direction = "row" justifyContent = "center" marginTop = "auto" >

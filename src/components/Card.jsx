@@ -3,7 +3,8 @@ import NewLabel from './../assets/new.png'
 import { Stack } from '@mui/material';
 import {css} from 'styled-components'
 import StarIcon from './../assets/star.png'
-import { checkFoodType, checkRating } from '../utils/cardValues';
+import HeartIcon from './../assets/heart.svg'
+import { checkAddedDate, checkFoodType, checkRating } from '../utils/cardValues';
 
 const StyledCard = styled.div`
 display: flex;
@@ -82,11 +83,22 @@ top: -10px;
 left: -10px
 `
 
-const Circle = styled.div`
+const Circle = (css)`
 height: 5px;
 width: 5px;
-background-color: gray;
 border-radius: 50%;
+`
+
+const GrayCircle = styled.div`
+${Circle}
+background-color: gray;
+`
+
+const RedCircle = styled.div`
+${Circle}
+height: 8px;
+width: 8px;
+background: red;
 `
 const Price = styled.span`
 font-weight: 600;
@@ -131,12 +143,57 @@ background-color: gray;
 border-radius: 50%;
 `
 
+const NewCard = styled.div`
+font-weight: 700;
+position: absolute;
+bottom: 1rem;
+background: white;
+left: 1rem;
+display: flex;
+gap: 0.5rem;
+align-items: center;
+padding: 0 0.8rem;
+border-radius: 5px;
+font-size: 70%;
+`
+
+const HeartContainer = styled.div`
+position: absolute;
+right: 1rem;
+top: 1rem;
+background: white;
+padding: 0.5rem 0;
+display: flex;
+justify-content: center;
+border-radius: 50%;
+cursor: pointer;
+&:hover {
+  background: #fac3c5;
+  color: white;
+}
+`
+
+const Heart = styled.img`
+width: 50%
+`
+
+
+
 const Card = ({frequentOrder,data}) => {
 
   return (
     <StyledCard>
         <ImageContainer style = {{height: frequentOrder ? "80%": "50%"}}>
-            {/* <Label src = {NewLabel} alt = "Label" /> */}
+            {frequentOrder && checkAddedDate(data?.addedAt) && <Label src = {NewLabel} alt = "Label" />}
+            {!frequentOrder && checkAddedDate(data?.addedAt) && 
+            <NewCard>
+              <RedCircle></RedCircle>
+              <p>NEW</p>
+            </NewCard>
+            }
+            {!frequentOrder && <HeartContainer>
+              <Heart src = {HeartIcon} alt = "Heart Icon" />
+            </HeartContainer>}
             <Image src = {data?.imgUrl} alt = "Food image" />
         </ImageContainer>
         {frequentOrder ? <CardFooter>
@@ -151,10 +208,10 @@ const Card = ({frequentOrder,data}) => {
             <Name>{data?.name}</Name>
             <Stack direction = "row" alignItems = "center" gap = "0.5rem" fontSize="small">
               <GrayText><Price>₹{data?.price}/-</Price> per head</GrayText>
-              <Circle></Circle>
+              <GrayCircle></GrayCircle>
               <GrayText>{data?.totalDishes} dishes</GrayText>
             </Stack>
-            <Stack direction = "row" justifyContent= "space-between" minWidth = {{lg: "260px"}} fontSize = "small">
+            <Stack direction = "row" justifyContent= "space-between" minWidth = {{md: "260px",sm: "220px", xs: "200px"}} fontSize = "small">
               <Stack direction = "row" >
                 <Rating style = {{background: checkRating(data?.rating)}}>
                   <Star src = {StarIcon} alt = "Star Icon" />

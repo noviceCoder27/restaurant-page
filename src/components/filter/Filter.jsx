@@ -30,7 +30,6 @@ const Filter = ({type,options,isSlider,marks,setPriceText,setDistanceText,distan
     useEffect(() => {
         if (isDefault) {
             setValue([values[0], values[1]]);
-            setFilterValues({format: [], price: [],occasion: [],foodType: [],distance: []});
             setCheckedValues([]);
             type === "price" && setPriceText("");
             type === "distance" && setDistanceText("");
