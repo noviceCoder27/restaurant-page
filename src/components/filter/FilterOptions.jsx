@@ -72,25 +72,27 @@ const FilterOptions = () => {
             label: '20km',
         },
     ]
+    const {filterValues} = useFilterContext();
 
     const getPriceText = () => {
         if(filterValues.price.length) {
-            
+            const {price} = filterValues
+            return `₹${price[0]}-${price[1]}`;
         }
         return "";
     }
 
     const getDistanceText = () => {
         if(filterValues.distance.length) {
-            
+            const {distance} = filterValues;
+            return `${distance[0]}km-${distance[1]}km`;
         }
         return "";
     }
 
 
-    const [priceText,setPriceText] = useState("");
-    const [distanceText,setDistanceText] = useState("")
-    const {filterValues} = useFilterContext();
+    const [priceText,setPriceText] = useState(getPriceText());
+    const [distanceText,setDistanceText] = useState(getDistanceText())
     
     return (
         <Container>
