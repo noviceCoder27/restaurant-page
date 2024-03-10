@@ -34,9 +34,12 @@ font-size: clamp(1.3rem,1.2vw,2rem)
 `
 
 const StyledSection = styled.section `
-padding: 2rem 3rem;
+padding: 0;
 padding-bottom: 0;
 display: flex;
+@media (min-width: 330px) {
+  padding: 2rem 3rem;
+}
 `
 
 const Sort = styled.div`
@@ -197,7 +200,7 @@ const Home = () => {
                 </StyledSelect>
               </Sort>
             </Stack>
-            <Grid container mt = '2rem' ml = {{lg: "5rem"}} columnGap = "1rem" rowGap = "2rem" justifyContent={{sm: "center",lg: "start"}}>
+            <Grid container mt = '2rem' ml = {{lg: "2rem"}} columnGap = "1rem" rowGap = "2rem" justifyContent={{sm: "center",lg: "start"}}>
               {displayGridItems}
             </Grid>
             <Stack spacing={2} direction = "row" justifyContent = "center" marginTop = "auto" >

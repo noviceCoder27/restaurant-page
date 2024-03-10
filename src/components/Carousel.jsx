@@ -8,9 +8,6 @@ import { useMemo } from 'react';
 const StyledCarousel = styled(Carousel)`
 width: 95%;
 margin-left: 1rem;
-@media (max-width: 1000px) {
-  width: 90%;
-}
 `
 
 const responsive = {

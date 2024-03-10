@@ -8,6 +8,20 @@ export const FilterContextProvider = ({children}) => {
     const [filterArr,setFilterArr] = useState([]);
     const [filteredItems,setFilteredItems] = useState(restaurants);
     const [isDefault,setIsDefault] = useState(false);
+
+    const filterArrayValues = () => {
+        const allValues = Object.keys(filterValues).reduce((arr, key) => {
+            if ((key === 'price' || key === 'distance') && filterValues[key].length > 0) {
+              return [...arr, filterValues[key]];
+            } else if (filterValues[key].length > 0) {
+              return [...arr, ...filterValues[key]];
+            } else {
+              return arr;
+            }
+        }, []);
+        setFilterArr(allValues);
+    }
+
     const filter = () => {
         const filteredRestaurants = restaurants.filter(restaurant => {
             for (let key in filterValues) {
@@ -32,16 +46,7 @@ export const FilterContextProvider = ({children}) => {
         return true;
     });    
     setFilteredItems(filteredRestaurants);
-    const allValues = Object.keys(filterValues).reduce((arr, key) => {
-        if ((key === 'price' || key === 'distance') && filterValues[key].length > 0) {
-          return [...arr, filterValues[key]];
-        } else if (filterValues[key].length > 0) {
-          return [...arr, ...filterValues[key]];
-        } else {
-          return arr;
-        }
-    }, []);
-    setFilterArr(allValues);
+    filterArrayValues();
     }
 
     const reset = () => {
