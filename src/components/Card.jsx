@@ -2,7 +2,8 @@ import styled from 'styled-components';
 import NewLabel from './../assets/new.png'
 import { Stack } from '@mui/material';
 import {css} from 'styled-components'
-
+import StarIcon from './../assets/star.png'
+import { checkFoodType, checkRating } from '../utils/cardValues';
 
 const StyledCard = styled.div`
 display: flex;
@@ -93,7 +94,41 @@ color: #ff264e;
 `  
 
 const GrayText = styled.p`
+margin-top: 0.5rem;
 color: gray;
+`
+
+const Rating = styled.div`
+display: flex;
+gap: 0.5rem;
+align-items: center;
+max-height: 24px;
+padding: 0 0.5rem;
+color: white;
+border-radius: 5px;
+margin-top: 1rem;
+`
+
+const Star = styled.img`
+width: 100%;
+max-width: 12px;
+max-height: 18px
+`
+const Container = styled.div`
+border: 2px solid black;
+width: 14px;
+height: 14px;
+margin-top: 1rem;
+display: flex;
+justify-content: center;
+align-items: center;
+`
+
+const ColorCircle = styled.div`
+height: 8px;
+width: 8px;
+background-color: gray;
+border-radius: 50%;
 `
 
 const Card = ({frequentOrder,data}) => {
@@ -114,21 +149,36 @@ const Card = ({frequentOrder,data}) => {
         <CardFooterMain>
           <div>
             <Name>{data?.name}</Name>
-            <Stack direction = "row" alignItems = "center" gap = "0.5rem">
+            <Stack direction = "row" alignItems = "center" gap = "0.5rem" fontSize="small">
               <GrayText><Price>₹{data?.price}/-</Price> per head</GrayText>
               <Circle></Circle>
               <GrayText>{data?.totalDishes} dishes</GrayText>
             </Stack>
-            <Stack direction = "row" justifyContent= "space-between">
+            <Stack direction = "row" justifyContent= "space-between" minWidth = {{lg: "260px"}} fontSize = "small">
               <Stack direction = "row" >
-                <div>
+                <Rating style = {{background: checkRating(data?.rating)}}>
+                  <Star src = {StarIcon} alt = "Star Icon" />
                   <p>{data?.rating}</p>
-                </div>
-                <GrayText>{data?.totalRatings} ratings</GrayText>
+                </Rating>
+                <GrayText style = {{marginTop: "1.2rem", marginLeft: "0.5rem"}}>{data?.totalRatings} ratings</GrayText>
               </Stack>
-              <Stack direction = "row" marginBottom = "1rem">
-                <p>Red</p>
-                <p>Green</p>
+              <Stack direction = "row" gap = "0.5rem" marginBottom = "1rem" marginTop = "0.1rem">
+                {data?.foodType === "Vegetarian" && <Container style={{borderColor: checkFoodType(data?.foodType)}}>
+                  <ColorCircle style = {{background: checkFoodType(data?.foodType)}}></ColorCircle>
+                </Container>}
+                {data?.foodType === "Non Vegetarian" && <Container style={{borderColor: checkFoodType(data?.foodType)}}>
+                <ColorCircle style = {{background: checkFoodType(data?.foodType)}}></ColorCircle>
+                </Container>}
+                {data?.foodType === "Both" && 
+                <>
+                 <Container style={{borderColor: checkFoodType(data?.foodType)[0]}}>
+                    <ColorCircle style = {{background: checkFoodType(data?.foodType)[0]}}></ColorCircle>
+                  </Container>
+                  <Container style={{borderColor: checkFoodType(data?.foodType)[1]}}>
+                    <ColorCircle style = {{background: checkFoodType(data?.foodType)[1]}}></ColorCircle>
+                  </Container>
+                </>
+               }
               </Stack >
             </Stack>
           </div>

@@ -104,7 +104,7 @@ right: -2px;
 `
 
 const Footer = styled.div`
-height: 10vh;
+min-height: 10vh;
 width: 100%;
 background-color: #faedb4
 `
@@ -177,7 +177,7 @@ const Home = () => {
         <ResultSection>
           <ResultHeader>RESULTS({filteredItems?.length})</ResultHeader>
           <Box borderTop= "2px solid #d1d1d1" p = "2rem">
-            <Stack direction = "row" width = "100%">
+            <Stack direction = "row" width = "100%" flexWrap= "wrap">
               <FilterButtons>
                 <FilterButton />
               </FilterButtons>
@@ -190,7 +190,7 @@ const Home = () => {
                 </StyledSelect>
               </Sort>
             </Stack>
-            <Grid container mt = '2rem' columnGap = "1rem" rowGap = "2rem">
+            <Grid container mt = '2rem' columnGap = "1rem" rowGap = "2rem" justifyContent={{sm: "center",lg: "start"}}>
               {displayGridItems}
             </Grid>
             <Stack spacing={2} direction = "row" justifyContent = "center" marginTop = "auto" >
