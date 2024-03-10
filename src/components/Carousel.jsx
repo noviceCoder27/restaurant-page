@@ -6,7 +6,7 @@ import { useMemo } from 'react';
 
 
 const StyledCarousel = styled(Carousel)`
-width: 95%;
+width: 100%;
 margin-left: 1rem;
 `
 
@@ -14,21 +14,21 @@ const responsive = {
   desktop: {
     breakpoint: {
       max: 3000,
-      min: 1480
+      min: 1650
     },
     items: 5,
   },
   tablet: {
     breakpoint: {
-      max: 1280,
+      max: 1370,
       min: 880
     },
     items: 3,
   },
   largeTablet: {
     breakpoint: {
-      max: 1480,
-      min: 1280
+      max: 1650,
+      min: 1370
     },
     items: 4,
   },
