@@ -12,7 +12,8 @@
         "distance": "12.5",
         "price": 250,
         "totalOrders": 250,
-        "totalRatings": 154
+        "totalRatings": 154,
+        "occasion": "Birthday Celebration"
     },
     {
         "imgUrl": "https://t3.ftcdn.net/jpg/06/46/12/76/360_F_646127635_QAMIRveeuBncqSLMe3X2c5CcxpqfE2lp.jpg",
@@ -27,7 +28,8 @@
         "distance": "11",
         "price": 300,
         "totalOrders": 150,
-        "totalRatings": 410
+        "totalRatings": 410,
+        "occasion": "House Warming"
     },
     {
         "imgUrl": "https://assets.gqindia.com/photos/6213cbed18140d747a9b0a6e/16:9/w_1920,h_1080,c_limit/new%20restaurant%20menus%20in%20Mumbai.jpg",
@@ -42,7 +44,8 @@
         "distance": "9",
         "price": 300,
         "totalOrders": 80,
-        "totalRatings": 350
+        "totalRatings": 350,
+        "occasion": "House Party"
     },
     {
         "imgUrl": "https://media.istockphoto.com/id/531464020/photo/beef-steaks-on-the-grill.jpg?s=612x612&w=0&k=20&c=bGH-BIOJULADBnyfCiEs5nbM1gWYHKr1UiSDbPn_vZY=",
@@ -57,7 +60,8 @@
         "distance": "6",
         "price": 400,
         "totalOrders": 120,
-        "totalRatings": 250
+        "totalRatings": 250,
+        "occasion": "Birthday Celebration"
     },
     {
         "imgUrl": "https://media.istockphoto.com/id/1464754561/photo/coffee-cup-latte-art-on-table-in-background-of-interior-of-coffee-shop-local-small-businesses.webp?b=1&s=170667a&w=0&k=20&c=ClDe_nXR-zyUOtWwoRtqfKm3AJDVVorgiPS_YDJT2GE=",
@@ -72,7 +76,8 @@
         "distance": "5",
         "price": 500,
         "totalOrders": 500,
-        "totalRatings": 150
+        "totalRatings": 150,
+        "occasion": "Birthday Celebration"
     },
     {
         "imgUrl": "https://img.freepik.com/free-photo/tartlets-with-pistachios-strawberry-cream-chocolate-side-view_141793-4156.jpg?size=626&ext=jpg&ga=GA1.1.1803636316.1708300800&semt=ais",
@@ -87,7 +92,8 @@
         "distance": "0.8",
         "price": 400,
         "totalOrders": 780,
-        "totalRatings": 250
+        "totalRatings": 250,
+        "occasion": "House Warming"
     },
     {
         "imgUrl": "https://media-cdn.tripadvisor.com/media/photo-s/16/42/21/69/getlstd-property-photo.jpg",
@@ -102,7 +108,8 @@
         "distance": "1",
         "price": 190,
         "totalOrders": 123,
-        "totalRatings": 283
+        "totalRatings": 283,
+        "occasion": "House Party"
     },
     {
         "imgUrl": "https://media.istockphoto.com/id/1053855542/photo/chopstick-with-nigiri-sushi-piece.jpg?s=612x612&w=0&k=20&c=sy31QLUoIhuuacPrd9_Aick4D_yVEZEbVTZv_k4tuZc=",
@@ -117,7 +124,8 @@
         "distance": "10",
         "price": 220,
         "totalOrders": 117,
-        "totalRatings": 390
+        "totalRatings": 390,
+        "occasion": "Society Event"
     },
     {
         "imgUrl": "https://images.picxy.com/cache/2020/7/10/6db58a89ce72f97f4044231e1d191508.jpg",
@@ -132,7 +140,8 @@
         "distance": "12",
         "price": 380,
         "totalOrders": 921,
-        "totalRatings": 48
+        "totalRatings": 48,
+        "occasion": "Birthday Celebration"
     },
     {
         "imgUrl": "https://www.tastingtable.com/img/gallery/what-makes-restaurant-burgers-taste-different-from-homemade-burgers-upgrade/l-intro-1662064407.jpg",
@@ -147,7 +156,8 @@
         "distance": "15",
         "price": 420,
         "totalOrders": 1050,
-        "totalRatings": 110
+        "totalRatings": 110,
+        "occasion": "House Warming"
     },
     {
         "imgUrl": "https://media.istockphoto.com/id/857927726/photo/pasta-with-meat-tomato-sauce-and-vegetables.jpg?b=1&s=612x612&w=0&k=20&c=Kqfn3b2OgJ93qCoMm6TV01B8Xm314A_Glh_QQ33mlZo=",
@@ -162,7 +172,8 @@
         "distance": "5",
         "price": 300,
         "totalOrders": 100,
-        "totalRatings": 120
+        "totalRatings": 120,
+        "occasion": "House Warming"
     },
     {
         "imgUrl": "https://img.freepik.com/premium-photo/photo-gourmet-food-table-restaurant-realistic-photo_727998-157.jpg",
@@ -177,7 +188,8 @@
         "distance": "2",
         "price": 400,
         "totalOrders": 102,
-        "totalRatings": 30
+        "totalRatings": 30,
+        "occasion": "Society Event"
     },
     {
         "imgUrl": "https://restaurantindia.s3.ap-south-1.amazonaws.com/s3fs-public/content6553.jpg",
@@ -187,12 +199,13 @@
         "rating": 3.1,
         "totalDishes": 12,
         "addedAt": "2024-03-09T00:00:00Z",
-        "foodType": "Vegetrian",
+        "foodType": "Vegetarian",
         "format": "Buffet",
         "distance": "3.5",
         "price": 200,
         "totalOrders": 201,
-        "totalRatings": 203
+        "totalRatings": 203,
+        "occasion": "Birthday Celebration"
     },
     {
         "imgUrl": "https://blog.dineout-cdn.co.in/blog/wp-content/uploads/2019/10/Blog-10-1030x538.jpg",
@@ -207,7 +220,8 @@
         "distance": "3",
         "price": 160,
         "totalOrders": 250,
-        "totalRatings": 50
+        "totalRatings": 50,
+        "occasion": "House Party"
     },
     {
         "imgUrl": "https://img.freepik.com/free-photo/grilled-chicken-legs-flaming-grill-with-grilled-vegetables-with-tomatoes-potatoes-pepper-seeds-salt_1150-37782.jpg",
@@ -222,6 +236,7 @@
         "distance": "2",
         "price": 320,
         "totalOrders": 119,
-        "totalRatings": 520
+        "totalRatings": 520,
+        "occasion": "House Party"
     }
 ]

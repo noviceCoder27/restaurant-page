@@ -90,7 +90,7 @@ const Filter = ({type,options,isSlider,marks,setPriceText,setDistanceText,distan
     const displayOptions = options?.map((option,index) => (
         <FormControlLabel 
         key = {index} 
-        control={<Checkbox checked={filterValues.format.includes(option)} onChange={function() {handleCheckboxChange(option)}}/>} 
+        control={<Checkbox checked={filterValues[type].includes(option)} onChange={function() {handleCheckboxChange(option)}}/>} 
         label= {option} 
         sx = {{'&.Mui-checked': {
         color: "#ff264e"
