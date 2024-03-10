@@ -38,6 +38,14 @@ color: white;
 }
 `
 
+const Reset = styled.p`
+cursor: pointer;
+color: gray;
+&:hover {
+  color: black;
+}
+`
+
 const FilterDrawer = ({openDrawer,setOpenDrawer}) => {
   const {reset,filter} = useFilterContext();
   const applyFilter = () => {
@@ -55,7 +63,7 @@ const FilterDrawer = ({openDrawer,setOpenDrawer}) => {
       <Drawer open={openDrawer}>
         <Stack direction = "row" justifyContent= "space-between">
           <h3>FILTERS</h3>
-          <p onClick = {reset}>Reset all</p>
+          <Reset onClick = {reset}>Reset all</Reset>
         </Stack>
         <FilterOptions />
         <Buttons>

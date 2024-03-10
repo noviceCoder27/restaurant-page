@@ -5,6 +5,7 @@ export const CreateFilterContext = createContext("");
 
 export const FilterContextProvider = ({children}) => {
     const [filterValues,setFilterValues] = useState({format: [], price: [],occasion: [],foodType: [],distance: []});
+    const [filterArr,setFilterArr] = useState([]);
     const [filteredItems,setFilteredItems] = useState(restaurants);
     const [isDefault,setIsDefault] = useState(false);
     const filter = () => {

@@ -8,6 +8,7 @@ import FilterDrawer, { Apply } from '../components/filter/FilterDrawer';
 import FilterOptions from '../components/filter/FilterOptions';
 import { useFilterContext } from '../context/FilterContext';
 import { useMemo } from 'react';
+import FilterButton from '../components/filter/FilterButton';
 
 
 const Main = styled.main`
@@ -115,15 +116,16 @@ font-weight: 600;
 const ResultHeader = styled.h3`
 margin-left: 2rem;
 `
-
+const FilterButtons = styled.div`
+display: flex;
+flex-wrap: wrap;
+gap: 1rem;
+`
 
 
 const Home = () => {
   const [text,setText] = useState("Most Popular")
   const [openDrawer,setOpenDrawer] = useState(false);
-  const toggleDrawer = (newOpen) => () => {
-    setOpenDrawer(newOpen);
-  };
   const {restaurants,filter,filteredItems,reset} = useFilterContext()
   const itemsPerPage = 6;
   const [page, setPage] = useState(1);
@@ -141,10 +143,9 @@ const Home = () => {
       case "Recently Added":
           sortedRestaurants = [...filteredItems].sort((a, b) => new Date(b.addedAt) - new Date(a.addedAt));
           break
-      
     }
     return sortedRestaurants
-  },[text]);
+  },[text,filteredItems]);
   const itemsToDisplay = sortedItems.slice((page - 1) * itemsPerPage, page * itemsPerPage);
 
   const displayGridItems = itemsToDisplay.map((restaurant,index) => (
@@ -155,9 +156,9 @@ const Home = () => {
 
   return (
     <Main> 
-      <FilterDrawer openDrawer={openDrawer} setOpenDrawer = {setOpenDrawer} toggleDrawer={toggleDrawer} />
+      <FilterDrawer openDrawer={openDrawer} setOpenDrawer = {setOpenDrawer} />
       <FrequentOrders>
-        <MenuImg src = {MenuIcon} alt = "Hamburger menu" onClick={toggleDrawer(true)}/>
+        <MenuImg src = {MenuIcon} alt = "Hamburger menu" onClick={() => setOpenDrawer(true)}/>
           <Header>MOST FREQUENTLY ORDERED</Header>
         <CardCarousel data = {restaurants}/>
       </FrequentOrders>
@@ -177,8 +178,9 @@ const Home = () => {
           <ResultHeader>RESULTS({filteredItems?.length})</ResultHeader>
           <Box borderTop= "2px solid #d1d1d1" p = "2rem">
             <Stack direction = "row" width = "100%">
-              <div>
-              </div>
+              <FilterButtons>
+                <FilterButton />
+              </FilterButtons>
               <Sort>
                 <SortText>Sort by:</SortText>
                 <StyledSelect onChange = {function(e) { setText(e.target.value) }}>

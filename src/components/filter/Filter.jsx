@@ -8,16 +8,30 @@ import { useFilterContext } from "../../context/FilterContext";
 
 const Filter = ({type,options,isSlider,marks,setPriceText,setDistanceText,distance = 0, values = [0,0]}) => {
 
-    const {setIsDefault,isDefault,setFilterValues} = useFilterContext();
-    const [value, setValue] = useState([values[0], values[1]]);
+    const getCheckBoxValues = () => {
+        if(type === "price") {
+            if(filterValues.price.length) {
+                return filterValues.price
+            }
+        } 
+        if(type === "distance") {
+            if(filterValues.distance.length) {
+                return filterValues.distance
+            }
+        }
+        return [values[0], values[1]]
+    }
+
+    const {setIsDefault,isDefault,setFilterValues,filterValues} = useFilterContext();
+    const [value, setValue] = useState(getCheckBoxValues());
+
     const [checkedValues, setCheckedValues] = useState([]);
-    const [checkboxValues, setCheckboxValues] = useState([]);
 
     useEffect(() => {
         if (isDefault) {
             setValue([values[0], values[1]]);
+            setFilterValues({format: [], price: [],occasion: [],foodType: [],distance: []});
             setCheckedValues([]);
-            setCheckboxValues([]);
             type === "price" && setPriceText("");
             type === "distance" && setDistanceText("");
         }
@@ -76,7 +90,7 @@ const Filter = ({type,options,isSlider,marks,setPriceText,setDistanceText,distan
     const displayOptions = options?.map((option,index) => (
         <FormControlLabel 
         key = {index} 
-        control={<Checkbox checked={checkedValues.includes(option)} onChange={function() {handleCheckboxChange(option)}}/>} 
+        control={<Checkbox checked={filterValues.format.includes(option)} onChange={function() {handleCheckboxChange(option)}}/>} 
         label= {option} 
         sx = {{'&.Mui-checked': {
         color: "#ff264e"

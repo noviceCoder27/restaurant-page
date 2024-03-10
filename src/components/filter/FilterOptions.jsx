@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import DownArrow from './../../assets/down.svg'
 import Filter from "./Filter";
 import { useState } from "react";
+import { useFilterContext } from "../../context/FilterContext";
 
 
 
@@ -71,10 +72,26 @@ const FilterOptions = () => {
             label: '20km',
         },
     ]
+
+    const getPriceText = () => {
+        if(filterValues.price.length) {
+            
+        }
+        return "";
+    }
+
+    const getDistanceText = () => {
+        if(filterValues.distance.length) {
+            
+        }
+        return "";
+    }
+
+
     const [priceText,setPriceText] = useState("");
     const [distanceText,setDistanceText] = useState("")
+    const {filterValues} = useFilterContext();
     
-
     return (
         <Container>
             <Accordion>
