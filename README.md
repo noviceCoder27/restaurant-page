@@ -1,8 +1,30 @@
-# React + Vite
+# Restaurant Finder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Follow these steps to run the project:
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. **Clone the Repository**
+   Clone the project repository to your local machine. Replace `<url>` with the URL of your repository.
+   \`\`\`bash
+   git clone <url>
+   \`\`\`
+
+2. **Navigate to the Project Directory**
+   Change your current directory to the project's directory.
+   \`\`\`bash
+   cd restaurant-finder
+   \`\`\`
+
+3. **Install Dependencies**
+   Install the project dependencies using `pnpm`.
+   \`\`\`bash
+   npm install
+   \`\`\`
+
+4. **Run the Project**
+   Finally, run the project.
+   \`\`\`bash
+   npm run start
+   \`\`\`
+
+That's it! Your Restaurant Finder project should now be running.
