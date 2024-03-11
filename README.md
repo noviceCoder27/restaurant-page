@@ -16,7 +16,7 @@ Follow these steps to run the project:
    ```
 
 3. **Install Dependencies**
-   Install the project dependencies using `pnpm`.
+   Install the project dependencies using `npm`.
    ```
    npm install
    ```
