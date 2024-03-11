@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import Card from './Card';
+import Card from './card/Card';
 import { useMemo } from 'react';
 
 

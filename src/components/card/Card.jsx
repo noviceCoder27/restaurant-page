@@ -1,10 +1,11 @@
 import styled from 'styled-components';
-import NewLabel from './../assets/new.png'
+import NewLabel from './../../assets/new.png'
 import { Stack } from '@mui/material';
 import {css} from 'styled-components'
-import StarIcon from './../assets/star.png'
-import HeartIcon from './../assets/heart.svg'
-import { checkAddedDate, checkFoodType, checkRating } from '../utils/cardValues';
+import StarIcon from './../../assets/star.png'
+import HeartIcon from './../../assets/heart.svg'
+import { checkAddedDate, checkFoodType, checkRating } from '../../utils/cardValues';
+import './Card.css'
 
 const StyledCard = styled.div`
 display: flex;
@@ -182,7 +183,7 @@ width: 50%
 const Card = ({frequentOrder,data}) => {
 
   return (
-    <StyledCard>
+    <StyledCard className = {frequentOrder ? "": "card"}>
         <ImageContainer style = {{height: frequentOrder ? "80%": "50%"}}>
             {frequentOrder && checkAddedDate(data?.addedAt) && <Label src = {NewLabel} alt = "Label" />}
             {!frequentOrder && checkAddedDate(data?.addedAt) && 

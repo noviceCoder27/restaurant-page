@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import CardCarousel from '../components/Carousel';
 import { Box, Grid, Pagination, Stack } from '@mui/material';
-import Card from '../components/Card';
+import Card from '../components/card/Card';
 import { useState } from 'react';
 import MenuIcon from'./../assets/menu.png'
 import FilterDrawer, { Apply } from '../components/filter/FilterDrawer';
@@ -127,6 +127,7 @@ display: flex;
 flex-wrap: wrap;
 gap: 1rem;
 `
+
 
 
 const Home = () => {
