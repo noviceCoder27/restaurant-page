@@ -53,11 +53,6 @@ const FilterDrawer = ({openDrawer,setOpenDrawer}) => {
     setOpenDrawer(false)
   }
 
-  const cancel = () => {
-    reset();
-    setOpenDrawer(false)
-  }
-
   return (
     <DrawerTheme>
       <Drawer open={openDrawer}>
@@ -67,7 +62,7 @@ const FilterDrawer = ({openDrawer,setOpenDrawer}) => {
         </Stack>
         <FilterOptions />
         <Buttons>
-          <Close onClick = {cancel}>CANCEL</Close>
+          <Close onClick = {() => setOpenDrawer(false)}>CANCEL</Close>
           <Apply onClick = {applyFilter}>APPLY</Apply>
         </Buttons>
       </Drawer>

@@ -8,7 +8,10 @@ import { useFilterContext } from "../../context/FilterContext";
 
 const Filter = ({type,options,isSlider,marks,setPriceText,setDistanceText,distance = 0, values = [0,0]}) => {
 
-    const getCheckBoxValues = () => {
+    const {setIsDefault,isDefault,setFilterValues,filterValues} = useFilterContext();
+
+    const getSliderValues = () => {
+        
         if(type === "price") {
             if(filterValues.price.length) {
                 return filterValues.price
@@ -21,11 +24,12 @@ const Filter = ({type,options,isSlider,marks,setPriceText,setDistanceText,distan
         }
         return [values[0], values[1]]
     }
-
-    const {setIsDefault,isDefault,setFilterValues,filterValues} = useFilterContext();
-    const [value, setValue] = useState(getCheckBoxValues());
-
+    const [value, setValue] = useState(getSliderValues());
     const [checkedValues, setCheckedValues] = useState([]);
+
+    useEffect(() => {
+        setValue(getSliderValues());
+    },[filterValues])
 
     useEffect(() => {
         if (isDefault) {
@@ -76,11 +80,13 @@ const Filter = ({type,options,isSlider,marks,setPriceText,setDistanceText,distan
         if (activeThumb === 0) {
         setValue([Math.min(newValue[0], value[1] - minDistance), value[1]]);
         const ans = [Math.min(newValue[0], value[1] - minDistance), value[1]];
+        type === "price" ? setFilterValues(prev => ({...prev,price:ans})): setFilterValues(prev => ({...prev,distance:ans}))
         type === "price"? setPriceText(`₹${ans[0]}-${ans[1]}`): setDistanceText(`${ans[0]}km-${ans[1]}km`);
         filterOptionValues(ans);
         } else {
         setValue([value[0], Math.max(newValue[1], value[0] + minDistance)]);
         const ans = [value[0], Math.max(newValue[1], value[0] + minDistance)];
+        type === "price" ? setFilterValues(prev => ({...prev,price:ans})): setFilterValues(prev => ({...prev,distance:ans}))
         type === "price"? setPriceText(`₹${ans[0]}-${ans[1]}`): setDistanceText(`${ans[0]}km-${ans[1]}km`);
         filterOptionValues(ans);
         }

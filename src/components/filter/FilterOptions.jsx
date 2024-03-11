@@ -4,6 +4,7 @@ import DownArrow from './../../assets/down.svg'
 import Filter from "./Filter";
 import { useState } from "react";
 import { useFilterContext } from "../../context/FilterContext";
+import { useEffect } from "react";
 
 
 
@@ -90,9 +91,13 @@ const FilterOptions = () => {
         return "";
     }
 
-
     const [priceText,setPriceText] = useState(getPriceText());
     const [distanceText,setDistanceText] = useState(getDistanceText())
+
+    useEffect(() => {
+        setPriceText(getPriceText());
+        setDistanceText(getDistanceText());
+    },[filterValues])
     
     return (
         <Container>
